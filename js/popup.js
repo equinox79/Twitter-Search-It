@@ -1,3 +1,9 @@
+/*
+ *
+ *  Twitter Search It / popup.js
+ *
+ */
+
 window.onload = function(){
   chrome.tabs.getSelected(null, function(tab) {
 
@@ -29,7 +35,7 @@ window.onload = function(){
         {
             name : 'Twitterで検索',
             icon : 'https://twitter.com/favicon.ico',
-            url  : 'https://mobile.twitter.com/search/realtime?q=' + encodeURIComponent(tab.url)
+            url  : 'https://twitter.com/search/realtime?q=' + encodeURIComponent(tab.url)
         },    
         {
             name : 'Topsyで検索',

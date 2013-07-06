@@ -1,9 +1,24 @@
+/*
+ *
+ *  Twitter Search It / background.js
+ *
+ */
+
+// DEBUGモード
+var DEBUG = true;
+
+/*
+ *  tab更新時の処理
+ */
 chrome.tabs.onUpdated.addListener(function(tid, info, tab){
     var cnt = getTweetCount(tab.url);
     setBadgeCount(cnt, tab.id);
     setTitle(cnt + "Tweet", tab.id)
 });
 
+/*
+ *  ツイート件数を取得
+ */
 function getTweetCount(url){
     var q = "http://urls.api.twitter.com/1/urls/count.json?url=" + url;
     var xhr = new XMLHttpRequest();
@@ -13,6 +28,9 @@ function getTweetCount(url){
     return (res.count)
 }
 
+/*
+ *  バッヂに数字を設定
+ */
 function setBadgeCount(count, tabId){
     var color = [65, 105, 225, 255];   // royalblue
 
@@ -36,6 +54,9 @@ function setBadgeCount(count, tabId){
     })
 }
 
+/*
+ *  タイトル設定
+ */
 function setTitle(msg, tabId){
     chrome.browserAction.setTitle({
         'title' : msg,
@@ -43,32 +64,52 @@ function setTitle(msg, tabId){
     })
 }
 
-
-// Right Click Menu
-var menu_selection = chrome.contextMenus.create({
-    "title" : '選択部分をツイッター検索',
-    "contexts": ["selection"],
-    "onclick": selectionRightClick
-});
-function selectionRightClick(info, tab) {
-  var urls = 'https://mobile.twitter.com/search/realtime?q=' + encodeURIComponent(info.selectionText);
-  chrome.tabs.create({
-    url      : urls,
-    selected : true
-  });
+/*
+ *  Twitter Searchのタブを生成
+ */
+function createSearchResultTab(info, tab, query) {
+    if (!query) return;
+    var search_api_url = 'https://twitter.com/search/realtime?q=%s';
+    chrome.tabs.create({
+        url      : search_api_url.replace(/%s/, query),
+        selected : true
+    });
 }
 
-var menu_taburl = chrome.contextMenus.create({
-    "title" : "このページのURLをツイッター検索",
-    "contexts": ["link"],
-    "onclick": genericOnClick
-});
-function genericOnClick(info, tab) {
-  var urls = 'https://mobile.twitter.com/search/realtime?q=' + encodeURIComponent(info.linkUrl);
-  chrome.tabs.create({
-    url      : urls,
-    selected : true
-  });
+/*
+ *  右クリックメニュー作成
+ */
+var menus = {
+    'selection' : chrome.contextMenus.create({
+        "title"     : '選択文字をツイッター検索',
+        "contexts"  : ["selection"],
+        "onclick"   : function(info, tab){
+            createSearchResultTab(info, tab, encodeURIComponent(info.selectionText));
+        }
+    }),
+    'link' : chrome.contextMenus.create({
+        "title"     : 'URLをツイッター検索',
+        "contexts"  : ["link"],
+        "onclick"   : function(info, tab){
+            createSearchResultTab(info, tab, encodeURIComponent(info.linkUrl));
+        }
+    }),
+    'page' : chrome.contextMenus.create({
+        "title"     : "このページのURLをツイッター検索",
+        "contexts"  : ["page"],
+        "onclick"   : function(info, tab){
+            createSearchResultTab(info, tab, encodeURIComponent(info.pageUrl));
+        }
+    })
+};
+
+/*
+ *  ロガー
+ */
+function log (msg) {
+    if(DEBUG) {
+        console.log(msg);        
+    }
 }
 
 
