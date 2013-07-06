@@ -1,6 +1,12 @@
 Twitter Search It
 ----
+
 Chrome Extentions for Twitter Search.
+
+Install
+----
+- Visit Chrome Web Store.
+ - https://chrome.google.com/webstore/detail/twitter-search-it/ampkcohimpfbgopdhbnllmgofhmcbdla
 
 History
 ----
