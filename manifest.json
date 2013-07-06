@@ -4,7 +4,8 @@
   "version": "0.4",
   "description": "いま見ているページのURLでTwitter検索します",
   "icons": {
-    "128": "icone_110524114934461.png"
+    "48"  : "tsi_icon48.png",
+    "128" : "tsi_icon128.png"
   },
   "background": {
     "scripts": ["js/background.js"]
@@ -12,7 +13,7 @@
   "content_security_policy" : "script-src 'self' 'unsafe-eval' https://platform.twitter.com; object-src 'self'",
   "browser_action": {
     "default_title": "Twitter Search It",
-    "default_icon": "icone_110524114934461.png",
+    "default_icon": "tsi_icon128.png",
     "default_popup": "popup.html"
   },
   "permissions": [
