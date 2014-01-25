@@ -11,6 +11,9 @@ Install
 History
 ----
 
+- 0.5
+ - Add Y!JapanSearch link
+ - base64 encode icon.
 - 0.4
  - fix Manifest V2
  - Remove Twitter Widget

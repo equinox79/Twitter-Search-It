@@ -1,63 +1,63 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-
-<!-- CSS -->
-<style type="text/css">
-#twbtn {
-  margin : 2px;
-}
-#tbl1 {
-  border : none;
-  width  : 100%;
-}
-#cmdlist {
-  margin: 1px 1px 1px 1px;
-  padding : 1px;
-  height : 40px;
-  width: 160px;
-}
-#cmdlist img {
-  margin : 0px 1px 0px 2px;
-  padding :0px;
-  width  : 13px;
-  height : 13px;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-.services {
-  font-size: 100%;
-  float: left;
-  list-style-type: none;
-  margin : 2px 0px 0px 2px;
-}
-.services span{
-  margin: 1px;
-}
-#result {
-  width: 240px;
-}
-
-</style>
-<!-- CSS for Twitter Widget -->
-<link rel="stylesheet" href="http://widgets.twimg.com/j/2/widget.css" type="text/css">
-
-<!-- JS -->
-<script type="text/javascript" charset="utf-8" src="js/popup.js"></script>
-
+ <meta charset="utf-8">
+ <!-- CSS -->
+ <style type="text/css">
+ #twbtn {
+   margin  : 1px;
+ }
+ #cmdlist {
+   margin     : 5px 0px 7px 1px;
+   padding    : 0px;
+   min-height : 40px;
+ }
+ #cmdlist a {
+   text-decoration : none;
+ }
+ #cmdlist a:link{
+   color : black;
+ }
+ #cmdlist a:visited{
+   color : black;
+ }
+ #cmdlist img {
+   margin  : 0px 0px 0px 2px;
+   padding : 1px 0px 0px 0px;
+   width   : 16px;
+   height  : 16px;
+   vertical-align: middle;
+ }
+ .services {
+   font-size: 75%;
+   list-style-type: none;
+   background-color: #eee;
+   background-image: -webkit-linear-gradient(#fff,#dedede);
+   background-image: linear-gradient(#fff,#dedede);
+   border: #ccc solid 1px;
+   border-radius: 3px;
+   color: #333;
+   font-weight: bold;
+   text-shadow: 0 1px 0 rgba(255,255,255,.5);
+   cursor: pointer;
+   margin : 2px 0px 3px 0px;
+   padding : 0px;
+ }
+ .services a span{
+   vertical-align: middle;
+   margin  : 0px 0px 0px 3px;
+   padding : 0px 0px 0px 0px;
+ }
+ #result {
+   width: 240px;
+ }
+ </style>
+ <!-- CSS for Twitter Widget -->
+ <link rel="stylesheet" href="http://widgets.twimg.com/j/2/widget.css" type="text/css">
 </head>
 <body>
-
-<!-- button -->
-<table id='tbl1'>
- <tr>
-  <td><div id='twbtn'></div></td>
- </tr>
-</table>
-
-<!-- コマンドリスト -->
-<ul id='cmdlist'></ul>
-
+ <div id='twbtn'></div>
+ <ul id='cmdlist'></ul>
+ <script type="text/javascript" charset="utf-8" src="js/popup.js"></script>
 </body>
 </html>
