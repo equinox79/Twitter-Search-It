@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Twitter Search It",
-  "version": "0.50",
+  "version": "0.51",
   "description": "いま見ているページのURLでTwitter検索 / You can easily search twitter.",
   "icons": {
     "48"  : "tsi_icon48.png",

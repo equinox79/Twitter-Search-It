@@ -4,16 +4,9 @@
  *
  */
 
-var Tsi = function () {
-   //this.init();
-};
-
-//Tsi.prototype = 
-
 window.onload = function(){
   chrome.tabs.getSelected(null, function(tab) {
 
-    //add_tweet_button('twbtn');
     // Add Tweet Button
     var twbtn = document.getElementById('twbtn');
     twbtn.appendChild(function(){
@@ -63,13 +56,11 @@ window.onload = function(){
             list.setAttribute("class", 'services');
             list.addEventListener('click', function(url){
                 return function(){
-                    window.open(url, '_new');
+                    window.open(url, '_blank');
                 };
             }(service[i].url));
 
-            var elm = document.createElement("a");
-            elm.setAttribute("href",   service[i].url);
-            elm.setAttribute("target", '_new');
+            var elm = document.createElement("div");
 
             var srvicon = document.createElement("img");
             srvicon.setAttribute('src', service[i].icon);

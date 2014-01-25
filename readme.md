@@ -11,6 +11,8 @@ Install
 History
 ----
 
+- 0.51
+ - fix open in new window bug.
 - 0.5
  - Add Y!JapanSearch link
  - base64 encode icon.
